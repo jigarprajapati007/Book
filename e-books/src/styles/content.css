@@ -21,6 +21,9 @@
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  /* margin: auto; */
 }
 .col-div {
   position: absolute;
@@ -32,14 +35,14 @@
 .btn-left {
   position: absolute;
   cursor: pointer;
-  top: 500px !important;
-  left: 86px;
+  top: 399px !important;
+  left: 6%;
 }
 .btn-right {
   position: absolute;
   cursor: pointer;
-  top: 500px !important;
-  right: 86px;
+  top: 399px !important;
+  right: 5.8%;
 }
 
 @media (min-width: 300px) and (max-width: 900px) {
