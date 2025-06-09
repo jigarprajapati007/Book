@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ffffff;
+  color: #f3fdfc;
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+/* Hide the default inner dot */
+.ant-radio-inner::after {
+  display: none !important;
+}
+
+/* Remove the border or customize it */
+.ant-radio-inner {
+  border: none;
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  background-image: url('../src/assets/content/checked.svg') !important;
+  background-color: black !important;
+}
+

@@ -1,0 +1,72 @@
+.header {
+  display: flex;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+.sub-part {
+  display: flex;
+  margin-top: -18px;
+  gap: 5px;
+  align-items: baseline;
+  margin-bottom: 0px;
+  margin-left: auto;
+  width: 92px;
+}
+.h4-sub {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 11.9px;
+  letter-spacing: 0%;
+  line-height: 14.48px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+.sel {
+  border: none;
+  width: 100px;
+}
+.sel .ant-select-selector {
+  border: none !important;
+}
+.sel .ant-select-selection-item {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0%;
+  line-height: 18.4px;
+}
+.btn-share {
+  border-radius: 40px;
+  border: 1px solid #dbdbdb;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0%;
+  line-height: 28px;
+}
+.hr-tag {
+  height: 0.5px;
+  background-color: #d9d9d9;
+  border: 0.5px solid #d9d9d9;
+  margin: 0px;
+}
+.pageheader {
+  display: flex;
+  margin-top: -20px;
+}
+.pageheader h4 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 11.7px;
+  letter-spacing: 0%;
+  line-height: 28.42px;
+  color: #5e5d5d;
+}
+.img-logo {
+  margin-left: auto;
+}

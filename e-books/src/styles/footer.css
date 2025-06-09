@@ -1,0 +1,234 @@
+.footer {
+  /* padding-top: 15px; */
+  border-radius: 60px;
+  border: 1px solid #e0e0e0;
+  height: 53px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.prev {
+  margin-top: 10px;
+  margin-left: 15px;
+  border-radius: 40px;
+  border: 1px solid #000000;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #1b1a1a;
+}
+.next {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 15px;
+  border-radius: 40px;
+  border: 1px solid #000000;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #1b1a1a;
+}
+.progress-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  padding: 8px 12px;
+  font-family: "Poppins";
+  font-size: 14px;
+  background-color: #fff;
+  gap: 12px;
+  margin: auto;
+}
+
+.time-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.time-h4 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+}
+.circle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #00bcd4;
+  border-radius: 50%;
+}
+
+.bar-box {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.segmented-bar {
+  display: flex;
+  gap: 2px;
+}
+
+.segment {
+  width: 6px;
+  height: 18px;
+  border-radius: 2px;
+  background-color: #e0e0e0;
+}
+
+.segment.green {
+  background-color: #28ea8c;
+}
+
+.segment.yellow {
+  background-color: #f8d228;
+}
+
+.status-box {
+  white-space: nowrap;
+}
+.custom-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.status-box span {
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #1b1a1a;
+}
+
+.pagefooter {
+  display: flex;
+  align-items: center;
+}
+.pgfoter-div {
+  width: 55%;
+  display: flex;
+}
+.pgfoter-div p {
+  margin-left: auto;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 11.7px;
+  letter-spacing: 0;
+  line-height: 28.42px;
+  color: #5e5d5d;
+}
+.pagefooter h4 {
+  margin-left: auto;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 11.7px;
+  letter-spacing: 0;
+  line-height: 28.42px;
+  color: #5e5d5d;
+}
+.submit {
+  width: 172px;
+  height: 34px;
+  background-color: #08d0c2;
+  color: #ffffff;
+  border-radius: 40px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 28px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 10px;
+  margin-right: 14px;
+}
+.back {
+  width: 87px;
+  height: 34px;
+  color: #4e4e4e;
+  border-radius: 40px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 28px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 10px;
+  margin-right: 14px;
+}
+.h3-ft {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 29.14px;
+  color: #1b1a1a;
+  text-align: center;
+}
+.hr-ft {
+  border: 0.5px dotted #d9d9d9;
+  margin-top: 25px;
+}
+.h2-ft {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 29.14px;
+  color: #1b1a1a;
+  text-align: center;
+}
+ .custom-table .ant-table td,
+.ant-table th {
+  border: 0.5px solid #d9d9d9 !important;
+  border-radius: 0 !important;
+  height: 40px !important;
+}
+.custom-table .ant-table th {
+  background-color: #f3fdfc !important;
+  height: 40px !important;
+}
+.custom-table .ant-table-thead > tr > th {
+  height: 40px !important;
+}
+.foot-modal .ant-modal-content {
+  border-radius: 21.14px;
+}
+.btn-set{
+ text-align: center;
+}
+
+.custom-table .ant-table-thead > tr > th {
+  height: 10px !important;
+  line-height: 10px !important;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 29.14px;
+  color: #4e4e4e;
+}
+.custom-table .ant-table-tbody{
+  height: 10px !important;
+  line-height: 10px !important;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 29.14px;
+  color: #1b1a1a;
+}
