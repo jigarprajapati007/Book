@@ -3,10 +3,10 @@ import que from "../../assets/content/pg3que.svg";
 const { Title, Paragraph, Text } = Typography;
 
 interface props {
-  handleChange: any;
-  questions: any;
+  handleChange: (qid: string, value: string)=>void;
+  questions: { id: number; text: string; options: { value: string; label: string; }[]; }[];
   answers: any;
-  handleAnswer: any;
+  handleAnswer: (questionId: number, selectedValue: string) => void;
 }
 export const Page3 = ({
   handleChange,

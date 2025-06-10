@@ -1,12 +1,21 @@
 import { Typography, Radio } from "antd";
 const { Title, Paragraph, Text } = Typography;
 interface props {
-  handleChange: any;
-  questions: any;
+  handleChange: (qid: string, value: string) => void;
+  questions: {
+    id: number;
+    text: string;
+    options: { value: string; label: string }[];
+  }[];
   answers: any;
-  handleAnswer:any;
+  handleAnswer: (questionId: number, selectedValue: string) => void;
 }
-export const Page4 = ({ handleChange, questions, answers, handleAnswer }: props) => {
+export const Page4 = ({
+  handleChange,
+  questions,
+  answers,
+  handleAnswer,
+}: props) => {
   return (
     <div className="pg4">
       <div className="pg3-main">
@@ -15,17 +24,22 @@ export const Page4 = ({ handleChange, questions, answers, handleAnswer }: props)
             <h2 className="pg4-h">BODY SHAMING IS A CRIME</h2>
             <p className="pg4-p">The effects include:</p>
             <div className="pg4-list">
-            <li>stress and emotional conflict</li>
-            <li> loss of self-confidence</li>
-            <li>depression </li>
-            <li>unhealthy eating habits </li>
-            <li>unhealthy eating habits</li>
+              <li>stress and emotional conflict</li>
+              <li> loss of self-confidence</li>
+              <li>depression </li>
+              <li>unhealthy eating habits </li>
+              <li>unhealthy eating habits</li>
             </div>
           </div>
           <div className="pg3-q2">
             <Title className="pg4-text">Video Games Are Good For You</Title>
             <Paragraph className="pg4-p2">
-             Recently, researchers have found that playing video games can help improve both our body and mind. It increases a variety of brain functions, including decisionmaking. People who play action-based games make decisions 25 per cent faster than others. There is also evidence that playing games can help with psychological problems by reducing symptoms of depression more than traditional treatment
+              Recently, researchers have found that playing video games can help
+              improve both our body and mind. It increases a variety of brain
+              functions, including decisionmaking. People who play action-based
+              games make decisions 25 per cent faster than others. There is also
+              evidence that playing games can help with psychological problems
+              by reducing symptoms of depression more than traditional treatment
             </Paragraph>
           </div>
         </div>

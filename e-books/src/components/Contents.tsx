@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { SetStateAction, useEffect, useRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Row, Col } from "antd";
@@ -158,105 +158,103 @@ const questions = {
     },
   ],
 };
+const data = {
+  5: {
+    options: ["is", "are", "was", "were"],
+  },
+  6: {
+    options: ["main", "bad", "only", "huge"],
+  },
+  7: {
+    options: ["Up", "Down", "At", "huge"],
+  },
+  8: {
+    options: ["Doing", "Not", "Always", "huge"],
+  },
+  9: {
+    options: ["are", "is", "we", "us"],
+  },
+  10: {
+    options: ["extreme", "is", "we", "us"],
+  },
+  11: {
+    options: ["ego", "is", "we", "us"],
+  },
+  12: {
+    options: ["of", "for", "we", "us"],
+  },
+};
 
+const que = [
+  {
+    text1: "Canvas bags and tote bags",
+    text2: "alternatives to single-use plastic.",
+    ques: 5,
+  },
+
+  {
+    text1: "Single-use plastic bags are the",
+    text2: "reason for global pollution crisis",
+    ques: 6,
+  },
+  {
+    text1:
+      "and a threat on our path to an eco-friendly lifestyle. According to The World Counts, we use 5 trillion plastic bags per year. That breaks",
+    text2: "to 160,000",
+    ques: 7,
+  },
+  {
+    text1:
+      "plastic bags per second and over 700 a year per person. It’s been estimated that 300 million plastic bags end up in the Atlantic Ocean every year. That is why many countries are ",
+    text2: "reusable bags for the planet.",
+    ques: 8,
+  },
+  {
+    text1:
+      "But, are reusable bags good for the environment? It depends! Reusable bags can be used over and over and are the obvious solution simply",
+    text2: "they",
+    ques: 9,
+  },
+  {
+    text1:
+      "create less waste in the long run. However, different types of bags will have a different impact sustainably depending on the raw materials, manufacturing, use and reuse, and the final",
+    text2: "of a product.",
+    ques: 10,
+  },
+  {
+    text1: "According to UNEP, “depending on their",
+    text2: " reusable bags might have",
+    ques: 11,
+  },
+  {
+    text1:
+      "to be broken down in an expensive recycling process to separate the different materials. Consequently, in many cases, reusable bags are not recycled.” That means that despite the",
+    text2:
+      " intentions, millions of reusable bags, designed to replace the need for conventional plastic shopping bags, will also end up in landfills.",
+    ques: 12,
+  },
+];
 export const Contents = () => {
-  const bookRef = useRef();
+  const bookRef = useRef<any>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages] = useState(6);
   const [answers, setAnswers] = useState({});
   const [attempts, setAttempts] = useState({});
   const [secondsRemaining] = useState(4 * 60 + 50);
   const [visible, setVisible] = useState(false);
-  const [activeBlank, setActiveBlank] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [answerspg5, setAnswerspg5] = useState({});
+  const [activeBlank, setActiveBlank] = useState<number | null>(null);
+  const [selectedOption, setSelectedOption] = useState({});
+  const [answerspg5, setAnswerspg5] = useState<any>({});
 
-  const data = {
-    5: {
-      options: ["is", "are", "was", "were"],
-    },
-    6: {
-      options: ["main", "bad", "only", "huge"],
-    },
-    7: {
-      options: ["Up", "Down", "At", "huge"],
-    },
-    8: {
-      options: ["Doing", "Not", "Always", "huge"],
-    },
-    9: {
-      options: ["are", "is", "we", "us"],
-    },
-    10: {
-      options: ["extreme", "is", "we", "us"],
-    },
-    11: {
-      options: ["ego", "is", "we", "us"],
-    },
-    12: {
-      options: ["of", "for", "we", "us"],
-    },
-  };
-
-  const que = [
-    {
-      text1: "Canvas bags and tote bags",
-      text2: "alternatives to single-use plastic.",
-      ques: 5,
-    },
-
-    {
-      text1: "Single-use plastic bags are the",
-      text2: "reason for global pollution crisis",
-      ques: 6,
-    },
-    {
-      text1:
-        "and a threat on our path to an eco-friendly lifestyle. According to The World Counts, we use 5 trillion plastic bags per year. That breaks",
-      text2: "to 160,000",
-      ques: 7,
-    },
-    {
-      text1:
-        "plastic bags per second and over 700 a year per person. It’s been estimated that 300 million plastic bags end up in the Atlantic Ocean every year. That is why many countries are ",
-      text2: "reusable bags for the planet.",
-      ques: 8,
-    },
-    {
-      text1:
-        "But, are reusable bags good for the environment? It depends! Reusable bags can be used over and over and are the obvious solution simply",
-      text2: "they",
-      ques: 9,
-    },
-    {
-      text1:
-        "create less waste in the long run. However, different types of bags will have a different impact sustainably depending on the raw materials, manufacturing, use and reuse, and the final",
-      text2: "of a product.",
-      ques: 10,
-    },
-    {
-      text1: "According to UNEP, “depending on their",
-      text2: " reusable bags might have",
-      ques: 11,
-    },
-    {
-      text1:
-        "to be broken down in an expensive recycling process to separate the different materials. Consequently, in many cases, reusable bags are not recycled.” That means that despite the",
-      text2:
-        " intentions, millions of reusable bags, designed to replace the need for conventional plastic shopping bags, will also end up in landfills.",
-      ques: 12,
-    },
-  ];
-
-  const handleBlankClick = (blankId) => {
+  const handleBlankClick = (blankId: number) => {
     setActiveBlank(blankId);
     setSelectedOption(answerspg5[blankId] || null);
     setVisible(true);
   };
 
-  const handleOk = (option) => {
-    if (option) {
-      setAnswerspg5((prev) => ({
+  const handleOk = (option: number) => {
+    if (option && activeBlank !== null) {
+      setAnswerspg5((prev: {}) => ({
         ...prev,
         [activeBlank]: option,
       }));
@@ -273,16 +271,16 @@ export const Contents = () => {
     ...questions.page4,
     ...questions.page5,
   ];
- 
-  const handleChange = (qid, value) => {
+
+  const handleChange = (qid: string, value: string) => {
     setAnswers({ ...answers, [qid]: value });
   };
   const minutes = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
-  const handleFlip = (e) => {
+  const handleFlip = (e: { data: SetStateAction<number> }) => {
     setCurrentPage(e.data);
   };
-  const handleAnswer = (questionId, selectedValue) => {
+  const handleAnswer = (questionId: number, selectedValue: string) => {
     setAttempts((prev) => ({
       ...prev,
       [questionId]: selectedValue,
@@ -356,64 +354,68 @@ export const Contents = () => {
   return (
     <>
       <div className="main-div">
-        <HTMLFlipBook
-          style={{ margin: "auto" }}
-          width={650}
-          height={832}
-          size="fixed"
-          startPage={1}
-          showCover={false}
-          mobileScrollSupport={true}
-          ref={bookRef}
-          useMouseEvents={false}
-          onFlip={handleFlip}
-          clickEventForward={false}
-          maxShadowOpacity={0.5}
-          disableFlipByClick={true}
-          swipeDistance={10}
-          usePortrait={true}
-        >
-          {pages.map((content, index) => (
-            <div key={index} className="page">
-              <PageHeader />
-              {content}
-            </div>
-          ))}
-        </HTMLFlipBook>
+        {
+          //@ts-ignore
+
+          <HTMLFlipBook
+            style={{ margin: "auto" }}
+            width={650}
+            height={832}
+            size="fixed"
+            startPage={1}
+            showCover={false}
+            mobileScrollSupport={true}
+            ref={bookRef}
+            useMouseEvents={false}
+            onFlip={handleFlip}
+            clickEventForward={false}
+            maxShadowOpacity={0.5}
+            disableFlipByClick={true}
+            swipeDistance={10}
+            usePortrait={true}
+          >
+            {pages.map((content, index) => (
+              <div key={index} className="page">
+                <PageHeader />
+                {content}
+              </div>
+            ))}
+          </HTMLFlipBook>
+        }
 
         <Row justify="center">
           <Col className="col-div">
             {currentPage > 0 && (
+              // eslint-disable-next-line jsx-a11y/alt-text
               <img
                 src={left}
-                shape="circle"
                 className="btn-left"
-                icon={<LeftOutlined />}
                 onClick={() => bookRef.current.pageFlip().flipPrev()}
               />
             )}
 
             {currentPage < totalPages - 1 && (
+              // eslint-disable-next-line jsx-a11y/alt-text
               <img
                 src={right}
                 className="btn-right"
-                shape="circle"
-                icon={<RightOutlined />}
                 onClick={() => bookRef.current.pageFlip().flipNext()}
               />
             )}
           </Col>
         </Row>
       </div>
-      {currentPage <7 &&<Footer
-        currentPage={currentPage}
-        totalPages={totalPages}
-        minutes={minutes}
-        seconds={seconds}
-        bookRef={bookRef}
-        attemptedCount={attemptedCount}
-        allQuestions={allQuestions}
-      />}
+      {currentPage < 7 && (
+        <Footer
+          currentPage={currentPage}
+          totalPages={totalPages}
+          minutes={minutes}
+          seconds={seconds}
+          bookRef={bookRef}
+          attemptedCount={attemptedCount}
+          allQuestions={allQuestions}
+        />
+      )}
     </>
   );
 };

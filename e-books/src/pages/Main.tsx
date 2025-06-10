@@ -1,5 +1,5 @@
 import { Header } from '../components/Header'
-import { Contents } from '../components/Contents.jsx'
+import { Contents } from '../components/Contents'
 import "../styles/content.css"
 import "../styles/header.css"
 import "../styles/footer.css"
